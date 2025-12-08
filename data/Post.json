@@ -1,0 +1,34 @@
+{
+  "Post": [
+    {
+      "id": 1,
+      "name": "Java",
+      "description": "Java is a powerful, object-oriented programming language used for building desktop applications, Android apps, enterprise software, and backend systems. Its platform independence (Write Once, Run Anywhere) makes it widely trusted for speed, reliability, and security."
+    },
+    {
+      "id": 2,
+      "name": "HTML",
+      "description": "HTML is the standard markup language used to structure webpages. It defines headings, paragraphs, images, links, tables, and forms, serving as the foundation of every website."
+    },
+    {
+      "id": 3,
+      "name": "CSS",
+      "description": "CSS is used to design and style webpages. It controls colors, layouts, fonts, spacing, animations, and overall visual appearance, making sites responsive and appealing."
+    },
+    {
+      "id": 4,
+      "name": "JavaScript",
+      "description": "JavaScript is a dynamic language used to add interactivity to websites. It powers animations, form validation, dynamic content, and single-page applications. It is also used in servers, mobile apps, and desktop applications."
+    },
+    {
+      "id": 5,
+      "name": ".NET",
+      "description": ".NET is a development platform by Microsoft for building web apps, desktop apps, cloud services, and enterprise software. It supports languages like C#, VB.NET, and F#, offering strong performance and security."
+    },
+    {
+      "id": 6,
+      "name": "Node.js",
+      "description": "Node.js is a JavaScript runtime for building server-side applications. It is fast, scalable, and ideal for real-time apps, APIs, streaming services, and backend development due to its non-blocking, event-driven architecture."
+    }
+  ]
+}

@@ -1,0 +1,410 @@
+/* ==========================
+        GLOBAL THEME
+========================== */
+body {
+  background: #0A0A0A;
+  color: #F1C40F;
+  font-family: "Arial", sans-serif;
+}
+
+/* ==========================
+        COURSE CARDS
+========================== */
+.card {
+  width: 280px;
+  background: #1A1A1A;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 20px;
+  box-shadow: 0 4px 12px rgba(241, 196, 15, 0.3);
+  transition: 0.3s ease-in-out;
+  text-align: center;
+  color: #F1C40F;
+  display: inline-block;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(241, 196, 15, 0.5);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card h3 {
+  margin-top: 10px;
+  font-size: 1.3rem;
+  color: #F1C40F;
+}
+
+.card p {
+  font-size: 16px;
+  margin: 8px 0;
+  color: #EDEDED;
+}
+
+/* ==========================
+        CARD BUTTONS
+========================== */
+button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s ease;
+  font-weight: bold;
+}
+
+/* Offer Button – Blue Accent */
+button.offer-btn {
+  background-color: #2E86C1;
+  color: white;
+}
+
+button.offer-btn:hover {
+  background-color: #1B4F72;
+}
+
+/* Buy Button – Batman Yellow */
+button.buy-btn {
+  background-color: #F1C40F;
+  color: black;
+}
+
+button.buy-btn:hover {
+  background-color: #C8A70A;
+}
+
+/* Delete Button – Danger Red */
+button.delete-btn {
+  background-color: #E74C3C;
+  color: white;
+}
+
+button.delete-btn:hover {
+  background-color: #922B21;
+}
+
+.span1 {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+/* Purchase Text */
+.purchased {
+  font-weight: bold;
+  color: #2ECC71;
+}
+
+.not-purchased {
+  color: #AAAAAA;
+}
+
+/* ==========================
+        LOGIN PAGE
+========================== */
+.login-container {
+  width: 100%;
+  min-height: 100vh;
+  background: #0A0A0A;
+  color: #F1C40F;
+  padding: 40px 0;
+  text-align: center;
+}
+
+/* Header */
+.login-header h1 {
+  font-size: 3rem;
+  color: #F1C40F;
+  text-shadow: 0 0 10px rgba(241, 196, 15, 0.6);
+}
+
+.login-header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* About Section */
+.login-info {
+  width: 60%;
+  margin: 20px auto;
+  padding: 20px;
+  background: #1A1A1A;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(241, 196, 15, 0.3);
+}
+
+.login-info h3 {
+  color: #F1C40F;
+}
+
+/* Login Form Card */
+.login-card {
+  width: 350px;
+  margin: 30px auto;
+  background: #111;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(241, 196, 15, 0.3);
+}
+
+.login-title {
+  color: #F1C40F;
+  margin-bottom: 15px;
+}
+
+/* Login Button */
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  background: #F1C40F !important;
+  border: none;
+  color: black;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background: #C8A70A !important;
+}
+
+/* Error Text */
+.error-text {
+  color: #E74C3C;
+}
+
+.Loading{
+  margin-left: 40%;
+  margin-top: 20%;
+}
+
+
+
+
+/* ==========================
+        BATMAN NAVBAR
+========================== */
+.bat-navbar {
+  width: 100%;
+  background: #0A0A0A;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 3px 12px rgba(241, 196, 15, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Left Section */
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.bat-logo {
+  width: 50px;
+  filter: brightness(1.2);
+  margin-right: 15px;
+}
+
+.nav-title {
+  color: #F1C40F;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(241, 196, 15, 0.6);
+}
+
+/* Right Section Links */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-link {
+  color: #F1C40F;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  color: white;
+  text-shadow: 0 0 12px yellow;
+}
+
+/* Login Button */
+.nav-btn {
+  padding: 10px 20px;
+  background: #F1C40F;
+  color: #000;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav-btn:hover {
+  background: #C8A70A;
+}
+
+.banner-image {
+  width: 30px;
+  text-align: left;
+  margin-top: 20px;
+  margin-left: 38%;
+}
+
+.banner-img {
+  width:300px;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.cardPost {
+  width: 60%;
+  background: #1A1A1A;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 20px;
+  box-shadow: 0 4px 12px rgba(241, 196, 15, 0.3);
+  transition: 0.3s ease-in-out;
+  text-align: center;
+  color: #F1C40F;
+  display: inline-block;
+}
+
+.cardPost:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(241, 196, 15, 0.5);
+}
+
+.about-wrapper {
+  width: 80%;
+  margin: 40px auto;
+  padding: 20px;
+  background: #0D0D0D;
+  color: #EAEAEA;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(241, 196, 15, 0.3);
+}
+
+.about-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #F1C40F;
+}
+
+.section-title {
+  color: #F1C40F;
+  margin-top: 30px;
+}
+
+.section-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.divider {
+  border: none;
+  height: 2px;
+  background: #F1C40F;
+  margin: 30px 0;
+}
+
+.about-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.about-list li {
+  margin: 8px 0;
+  font-size: 1.1rem;
+}
+
+.cardHome {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: large;
+  width: 60%;
+  background: #1A1A1A;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 100px;
+  margin-left:20%;
+  box-shadow: 0 4px 12px rgba(241, 196, 15, 0.3);
+  transition: 0.3s ease-in-out;
+  text-align: center;
+  color: #F1C40F;
+  display: inline-block;
+}
+
+.cardHome:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(241, 196, 15, 0.5);
+}
+
+/* MAIN WRAPPER */
+.wrapper {
+  display: flex;
+}
+
+/* LEFT SIDEBAR */
+.sidebar-simple {
+  width: 180px;
+  background: #222;
+  color: white;
+  height: 100vh;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.sidebar-simple h3 {
+  margin-bottom: 15px;
+  color: #F1C40F;
+}
+
+.sidebar-simple ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-simple ul li {
+  padding: 10px 0;
+  cursor: pointer;
+  border-bottom: 1px solid #444;
+}
+
+.sidebar-simple ul li:hover {
+  color: #F1C40F;
+}
+
+/* RIGHT CONTENT (COURSES) */
+.right-content {
+  margin-left: 200px; /* space for sidebar */
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  margin-bottom: 15px;
+}
+
+.CourseTitle{
+   text-align: center;
+   font-weight: 200;
+   color: #000;
+   background-color: #F1C40F;
+   border-radius: 20px;
+}
