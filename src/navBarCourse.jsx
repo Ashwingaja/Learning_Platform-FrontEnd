@@ -3,7 +3,7 @@ import useFetch from './usefetch';
 import { useNavigate } from 'react-router-dom';
 import Post from './post';
 function NavBarCourse() {
-  const [courses, error] = useFetch('http://localhost:3000/couses');
+  const [courses, error] = useFetch('https://cloud-backend-git-main-ashwingajas-projects.vercel.app/api/courses');
   const navigate = useNavigate()
   if (error) {
     return <p>Error loading courses.</p>;
