@@ -1,32 +1,33 @@
 import Login from './login'
 import { useEffect, useState  } from "react";
 import Course from './Course';
-import useFetch from './usefetch';
 import NavBarCourse from './navBarCourse';
+import coursesData from '../data/course.json';
 
-function CourseList(){
-    const [Courses , Error] = useFetch('http://localhost:3000/couses')
-  const [list, setList] = useState([]);
-  // copy fetched data into list
+function CourseList(props){
+  const [list, setList] = useState(coursesData.couses);
+  const [purchasedCourses, setPurchasedCourses] = useState([]);
+
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    if (Courses) setList(Courses);
-  }, [Courses]);
+    if (props.currentUser && props.users[props.currentUser]) {
+      setPurchasedCourses(props.users[props.currentUser].purchasedCourses || []);
+    }
+  }, [props.currentUser, props.users]);
 
   function handlecourse(id) {
     setList(prev => prev.filter(course => course.id !== id));
   }
 
+  const handlePurchase = (courseName) => {
+    const newPurchased = [...purchasedCourses, courseName];
+    setPurchasedCourses(newPurchased);
+    const newUsers = {...props.users, [props.currentUser]: {...props.users[props.currentUser], purchasedCourses: newPurchased}};
+    props.updateUsers(newUsers);
+    localStorage.setItem('users', JSON.stringify(newUsers));
+  };
+
    //  Courses.sort((x,y)=> parseInt(y.coursePrice) -parseInt(x.coursePrice))
     // const vmfCourses = Courses.filter((course)=>course.coursePrice<50)
-   if(!Courses){
-      return (
-         <>
-         {!Error && <img className="Loading" src="/data/assets/200 (2).gif"></img>}
-         {Error && <p>{Error}</p>}
-         </>
-      )
-   }
     const coursesList = list.map((course)=>
     <Course
     key={course.id} 
@@ -37,18 +38,18 @@ function CourseList(){
     show={true}
     id ={course.id}
     display ={handlecourse}
+    isPurchased={purchasedCourses.includes(course.courseName)}
+    onPurchase={handlePurchase}
     />)
     return(
        <div className="wrapper">
 
       {/* ---- SIMPLE FIXED SIDEBAR ---- */}
       <div className="sidebar-simple">
-        <h3>Menu</h3>
+
+        <h3>Purchased</h3>
         <ul>
-          <li> Home</li>
-          <li>All Courses</li>
-          <li>About</li>
-          <li>Login</li>
+          {purchasedCourses.map(course => <li key={course}>{course}</li>)}
         </ul>
       </div>
 

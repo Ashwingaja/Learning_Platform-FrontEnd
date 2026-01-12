@@ -1,32 +1,57 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CourseList from "./CourseList";
 
+const initialUsers = {
+  'test@example.com': { password: 'test', purchasedCourses: ['Java'] }
+};
 
 function Login() {
 const [loggedIn, setLoggedIn] = useState(false);
+const [mode, setMode] = useState('login'); // 'login' or 'register'
+const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
+const [confirmPassword, setConfirmPassword] = useState('');
+const [error, setError] = useState('');
+const [users, setUsers] = useState(() => {
+    const saved = localStorage.getItem('users');
+    return saved ? JSON.parse(saved) : initialUsers;
+});
+const [currentUser, setCurrentUser] = useState(null);
 
+useEffect(() => {
+    // Removed auto login
+}, [users]);
 
 function handleSubmit(e) {
-e.preventDefault();
-setLoggedIn(true);
-}
-const [pwd1 , setpwd1] = useState();
-const [pwd2 , setpwd2] = useState();
-const [match, setmatch] = useState(true);
-function handlepwd1(event){
-    setpwd1(event.target.value)
-}
-function handlepwd2(event){
-    setpwd2(event.target.value)
-    if(pwd1 == event.target.value ){
-        setmatch(true)
-    }else{
-        setmatch(false)
+    e.preventDefault();
+    setError('');
+    if (mode === 'register') {
+        if (password !== confirmPassword) {
+            setError('Passwords do not match');
+            return;
+        }
+        if (users[email]) {
+            setError('User already exists');
+            return;
+        }
+        const newUsers = {...users, [email]: { password, purchasedCourses: [] }};
+        setUsers(newUsers);
+        localStorage.setItem('users', JSON.stringify(newUsers));
+        localStorage.setItem('currentUser', email);
+        setCurrentUser(email);
+    } else {
+        if (!users[email] || users[email].password !== password) {
+            setError('Invalid email or password');
+            return;
+        }
+        localStorage.setItem('currentUser', email);
+        setCurrentUser(email);
+        setLoggedIn(true);
     }
 }
 
 
-if (loggedIn) return <CourseList />;
+if (loggedIn) return <CourseList users={users} currentUser={currentUser} updateUsers={setUsers} />;
 
 
 return (
@@ -47,26 +72,32 @@ return (
           skills with guidance inspired by the Dark Knight.
         </p>
       </div>
-<form className="my-5" style={{ width: "50%", margin: "auto" }}
-onSubmit={handleSubmit} >
+<div>
+    <button onClick={() => setMode('login')}>Login</button>
+    <button onClick={() => setMode('register')}>Register</button>
+</div>
+<form className="my-5" style={{ width: "50%", margin: "auto" }} onSubmit={handleSubmit} >
 <div className="mb-3">
 <label className="form-label">Email address</label>
-<input type="email" className="form-control" required />
+<input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="form-control" required />
 </div>
 
 <div className="mb-3">
 <label className="form-label">Password</label>
-<input value={pwd1} onChange={handlepwd1}type="password" className="form-control" required />
+<input value={password} onChange={(e) => setPassword(e.target.value)} type="password" className="form-control" required />
 </div>
 
+{mode === 'register' && (
 <div className="mb-3">
 <label className="form-label">Re-Enter Password</label>
-<input value={pwd2} onChange={handlepwd2}type="password" className="form-control" required />
+<input value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} type="password" className="form-control" required />
 </div>
-{!match && <p>Password Miss-Match</p>}
+)}
+
+{error && <p style={{color: 'red'}}>{error}</p>}
 
 <button type="submit" className="btn btn-primary">
-Submit
+{mode === 'login' ? 'Login' : 'Register'}
 </button>
 </form>
 </div>
