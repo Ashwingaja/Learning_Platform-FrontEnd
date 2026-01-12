@@ -6,7 +6,7 @@ function Post() {
   const [post, setPost] = useState(null);
 
   useEffect(() => {
-    fetch(`https://cloud-backend-git-main-ashwingajas-projects.vercel.app/api/posts/${id}`)
+    fetch(`http://localhost:3001/Post/${id}`)
       .then(res => res.json())
       .then(data => setPost(data))
       .catch(err => console.error(err));
