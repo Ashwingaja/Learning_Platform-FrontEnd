@@ -9,6 +9,22 @@ function CourseList(props){
   const [purchasedCourses, setPurchasedCourses] = useState([]);
 
   useEffect(() => {
+    const fetchCourses = async () => {
+      if (import.meta.env.VITE_BACKEND_URL) {
+        try {
+          const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/couses`);
+          const data = await response.json();
+          setList(data);
+        } catch (error) {
+          console.error('Error fetching courses:', error);
+          // Fallback to imported data
+        }
+      }
+    };
+    fetchCourses();
+  }, []);
+
+  useEffect(() => {
     if (props.currentUser && props.users[props.currentUser]) {
       setPurchasedCourses(props.users[props.currentUser].purchasedCourses || []);
     }
